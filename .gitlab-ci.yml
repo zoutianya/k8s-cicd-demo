@@ -1,0 +1,24 @@
+stages:
+  - build
+  - deploy
+ 
+
+build:
+  stage: build
+  tags:
+    - build
+  only:
+    - test
+  script:
+    - echo "mvn clean "
+    - echo "mvn install"
+
+
+deploy:
+  stage: deploy
+  tags:
+    - deploy
+  only:
+    - master
+  script:
+    - echo "hello deploy"
